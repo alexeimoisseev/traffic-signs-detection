@@ -7,7 +7,7 @@ annotations_file = open(data_dir + '/annotations.txt')
 annotations_lines = annotations_file.readlines()
 
 images = {}
-labels = {
+labels_all = {
   ' 30_SIGN': 0,
   ' 50_SIGN': 1,
   ' 60_SIGN': 2,
@@ -28,6 +28,11 @@ labels = {
   ' STOP': 17,
   ' URDBL': 18,
   ' OTHER': 19,
+}
+
+labels = {
+  'SPEED_LIMIT': 0,
+  'OTHER': 1
 }
 
 
@@ -53,7 +58,11 @@ def parse_boxes(input):
 
     width = abs_width / im_width
     height = abs_height / im_height
-    labelid = labels[label]
+    simple_label = 'OTHER'
+    if label.find('_SIGN') != -1:
+      simple_label = 'SPEED_LIMIT'
+
+    labelid = labels[simple_label]
     out = f'{labelid} {x:.5f} {y:.5f} {width:.5f} {height:.5f}'
     result.append(out)
   return result

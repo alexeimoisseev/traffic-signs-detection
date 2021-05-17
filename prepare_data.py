@@ -68,6 +68,8 @@ def parse_boxes(input):
     simple_label = label
     if label.find('_SIGN') == -1:
       continue
+    if label == ' 70_SIGN':
+      continue
 
     labelid = labels[simple_label]
     out = f'{labelid} {x:.5f} {y:.5f} {width:.5f} {height:.5f}'

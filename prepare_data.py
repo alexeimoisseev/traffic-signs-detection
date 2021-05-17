@@ -40,7 +40,7 @@ labels = {
   ' 100_SIGN': 6,
   ' 110_SIGN': 7,
   ' 120_SIGN': 8,
-  'OTHER': 1
+  'OTHER': 9
 }
 
 

@@ -39,8 +39,7 @@ labels = {
   ' 90_SIGN': 5,
   ' 100_SIGN': 6,
   ' 110_SIGN': 7,
-  ' 120_SIGN': 8,
-  'OTHER': 9
+  ' 120_SIGN': 8
 }
 
 

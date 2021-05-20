@@ -31,14 +31,8 @@ labels_all = {
 }
 
 labels = {
-  ' 30_SIGN': 0,
-  ' 50_SIGN': 1,
-  ' 60_SIGN': 2,
-  ' 80_SIGN': 3,
-  ' 90_SIGN': 4,
-  ' 100_SIGN': 5,
-  ' 110_SIGN': 6,
-  ' 120_SIGN': 7
+  'SPEED_LIMIT': 0,
+  'OTHER': 1,
 }
 
 
@@ -64,11 +58,9 @@ def parse_boxes(input):
 
     width = abs_width / im_width
     height = abs_height / im_height
-    simple_label = label
+    simple_label = 'SPEED_LIMIT'
     if label.find('_SIGN') == -1:
-      continue
-    if label == ' 70_SIGN':
-      continue
+      simple_label = 'OTHER'
 
     labelid = labels[simple_label]
     out = f'{labelid} {x:.5f} {y:.5f} {width:.5f} {height:.5f}'
